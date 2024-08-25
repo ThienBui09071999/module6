@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách nhân viên</title>
+<style>
+    .m-1p {
+        margin: 1%;
+    }
+</style>
+</head>
+<body>
+<div class="flex flex-col m-1p" >
+<!--   phần header-->
+    <div class="overflow-x-auto sticky top-0 bg-white z-10 shadow-md rounded-lg">
+        <div class="min-w-full inline-block align-middle">
+            <div class="relative text-gray-500 focus-within:text-gray-900 mb-4 flex items-center justify-end space-x-4">
+                <p class="whitespace-nowrap text-gray-900 mr-auto text-xl font-bold hidden md:block ">Danh sách thông tin nhân viên</p>
+                <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 inline-flex items-center justify-center px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded-full">
+                    <span class="text-sm font-medium leading-none text-white">Thêm nhân viên</span>
+                </button>
+                <div class="relative flex items-center ">
+                    <div class="absolute inset-y-0 left-1 flex items-center pl-3 pointer-events-none">
+                        <svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.5 17.5L15.4167 15.4167M15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333C11.0005 15.8333 12.6614 15.0929 13.8667 13.8947C15.0814 12.6872 15.8333 11.0147 15.8333 9.16667Z" stroke="#9CA3AF" stroke-width="1.6" stroke-linecap="round" />
+                            <path d="M17.5 17.5L15.4167 15.4167M15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333C11.0005 15.8333 12.6614 15.0929 13.8667 13.8947C15.0814 12.6872 15.8333 11.0147 15.8333 9.16667Z" stroke="black" stroke-opacity="0.2" stroke-width="1.6" stroke-linecap="round" />
+                            <path d="M17.5 17.5L15.4167 15.4167M15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333C11.0005 15.8333 12.6614 15.0929 13.8667 13.8947C15.0814 12.6872 15.8333 11.0147 15.8333 9.16667Z" stroke="black" stroke-opacity="0.2" stroke-width="1.6" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <input type="text" id="default-search" class="block w-50 sm:w-80 h-11 pr-5 pl-12 py-2.5 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none" placeholder="Search">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" overflow-x-auto pb-4">
+        <div class="min-w-full inline-block align-middle">
+            <div class="overflow-hidden  border rounded-lg border-gray-300">
+                <table class="table-auto min-w-full rounded-xl">
+                    <thead class="">
+<!--                    <tr class="bg-gray-50">-->
+<!--                        <th class="">-->
+<!--                            <div class="flex items-center py-5 px-5 ">-->
+<!--                                <input type="checkbox" value="" class="w-5 h-5 appearance-none border border-gray-300  rounded-md mr-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100">-->
+<!--                            </div>-->
+<!--                        </th>-->
+                        <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Mã Nhân Viên </th>
+                        <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Tên nhân viên </th>
+<!--                        <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize min-w-[150px]"> Full Name &amp; Email </th>-->
+                        <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Số CMND </th>
+                        <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Email </th>
+                        <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Số điện thoại</th>
+                        <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Địa chỉ </th>
+                        <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Hành động </th>
+                    </tr>
+                    </thead>
+<!--                    thẻ td-->
+                    <tbody class="divide-y divide-gray-300 "></tbody>
+                </table>
+            </div>
+<!--            pagination-->
+            <div class="py-1 flex justify-center">
+                <div class="flex justify-center">
+                    <nav class="flex items-center space-x-1">
+                        <button type="button" class="p-2.5 inline-flex items-center gap-x-2 text-sm rounded-full text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                            <span aria-hidden="true">«</span>
+                            <span class="sr-only">Previous</span>
+                        </button>
+                        <button type="button" class="min-w-[40px] flex justify-center items-center text-gray-800 hover:bg-gray-100 py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10" aria-current="page">1</button>
+                        <button type="button" class="min-w-[40px] flex justify-center items-center text-gray-800 hover:bg-gray-100 py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10">2</button>
+                        <button type="button" class="min-w-[40px] flex justify-center items-center text-gray-800 hover:bg-gray-100 py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10">3</button>
+                        <button type="button" class="p-2.5 inline-flex items-center gap-x-2 text-sm rounded-full text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                            <span class="sr-only">Next</span>
+                            <span aria-hidden="true">»</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div id="deleteModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <div class="fixed inset-0 bg-black opacity-50"></div>
+    <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full">
+        <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:h-10 sm:w-10">
+                    <svg class="h-6 w-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-xl leading-6 font-bold text-gray-900">Xác nhận xóa nhân viên</h3>
+                    <div class="mt-2">
+                        <p class="text-sm text-gray-500">Bạn có chắc chắn muốn xóa nhân viên này không?</p>
+                        <p class="text-sm text-gray-500 font-medium">Thao tác này không thể hoàn tác.</p>
+                        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <p class="text-sm text-gray-500"><strong>Mã nhân viên:</strong> <span id="modal-employee-id"></span></p>
+                            <p class="text-sm text-gray-500"><strong>Tên nhân viên:</strong> <span id="modal-employee-name"></span></p>
+                            <p class="text-sm text-gray-500"><strong>Số CMND:</strong> <span id="modal-employee-cmnd"></span></p>
+                            <p class="text-sm text-gray-500"><strong>Email:</strong> <span id="modal-employee-email"></span></p>
+                            <p class="text-sm text-gray-500"><strong>Số điện thoại:</strong> <span id="modal-employee-phone"></span></p>
+                            <p class="text-sm text-gray-500"><strong>Địa chỉ:</strong> <span id="modal-employee-address"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="px-4 py-3 flex justify-end">
+            <button onclick="deleteEmployee()" class="inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">Xác Nhận</button>
+            <button onclick="closeDeleteModal()" class="ml-3 inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:w-auto sm:text-sm">Hủy</button>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="Employees.js"></script>
+</html>
+<!--xs: hidden xs:block (ẩn trên các màn hình nhỏ hơn xs, hiển thị trên xs trở lên)-->
+<!--sm: hidden sm:block (ẩn trên các màn hình nhỏ hơn sm, hiển thị trên sm trở lên)-->
+<!--md: hidden md:block (ẩn trên các màn hình nhỏ hơn md, hiển thị trên md trở lên)-->
+<!--lg: hidden lg:block (ẩn trên các màn hình nhỏ hơn lg, hiển thị trên lg trở lên)-->
+<!--xl: hidden xl:block (ẩn trên các màn hình nhỏ hơn xl, hiển thị trên xl trở lên)-->

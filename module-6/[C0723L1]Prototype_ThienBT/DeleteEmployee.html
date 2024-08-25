@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xoá Nhân Viên</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">-->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .form-input {
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            background-color: #f9fafb;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .form-input:focus {
+            background-color: #fff;
+            border-color: #a5b4fc;
+            outline: none;
+        }
+        .bg-gradient {
+            background: linear-gradient(to right, #667eea, #764ba2);
+        }
+        .text-purple {
+            color: #805ad5;
+        }
+        .text-white {
+            color: #ffffff;
+        }
+        #imagePreview {
+            max-width: 100%;
+            max-height: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 min-h-screen flex items-center justify-center">
+<div class="container mx-auto p-8">
+    <div class="max-w-3xl w-full mx-auto bg-white p-8 rounded-lg shadow-lg whitespace-nowrap">
+        <h2 class="text-3xl font-bold mb-6 text-center text-purple whitespace-nowrap">XOÁ NHÂN VIÊN</h2>
+        <form id="employeeForm" enctype="multipart/form-data">
+            <div class="mb-4 flex justify-center">
+<!--                <label class="block text-gray-700 font-bold text-sm whitespace-nowrap">Hình ảnh <span class="text-red-500">*</span></label>-->
+                <img id="imagePreview" src="https://kynguyenlamdep.com/wp-content/uploads/2022/06/avatar-cute-vui-nhon.jpg" alt="Current Image" class="rounded-full items-center justify-center">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold text-sm whitespace-nowrap">Tài khoản <span class="text-red-500">*</span></label>
+                <input type="text" name="tai_khoan" class="opacity-50 cursor-not-allowed pointer-events-none block w-full mt-2 form-input text-sm whitespace-nowrap" value="TK001" readonly>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold text-sm whitespace-nowrap">Họ tên <span class="text-red-500">*</span></label>
+                <input type="text" name="ho_ten" class="opacity-50 cursor-not-allowed pointer-events-none block w-full mt-2 form-input text-sm whitespace-nowrap" value="Trần Xuân Tuấn Danh">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold text-sm whitespace-nowrap">Ngày sinh <span class="text-red-500">*</span></label>
+                <div class="flex space-x-2 text-sm">
+                    <select name="ngay" id="ngay" class="opacity-50 cursor-not-allowed pointer-events-none block w-full mt-2 form-input text-sm whitespace-nowrap"></select>
+                    <select name="thang" id="thang" class="opacity-50 cursor-not-allowed pointer-events-none block w-full mt-2 form-input text-sm whitespace-nowrap"></select>
+                    <select name="nam" id="nam" class="opacity-50 cursor-not-allowed pointer-events-none block w-full mt-2 form-input text-sm whitespace-nowrap"></select>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold text-sm whitespace-nowrap">Giới tính <span class="text-red-500">*</span></label>
+                <div class="flex space-x-4 opacity-50 cursor-not-allowed pointer-events-none">
+                    <label class="inline-flex items-center text-sm whitespace-nowrap">
+                        <input type="radio" name="gioi_tinh" value="Nam" class="form-radio" checked>
+                        <span class="ml-2 text-sm">Nam</span>
+                    </label>
+                    <label class="inline-flex items-center  whitespace-nowrap">
+                        <input type="radio" name="gioi_tinh" value="Nữ" class="form-radio">
+                        <span class="ml-2 text-sm">Nữ</span>
+                    </label>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold text-sm whitespace-nowrap">Email <span class="text-red-500">*</span></label>
+                <input type="email" name="email" class="opacity-50 cursor-not-allowed pointer-events-none block w-full mt-2 form-input text-sm whitespace-nowrap" value="danh@gmail.com">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold text-sm whitespace-nowrap">CMND <span class="text-red-500">*</span></label>
+                <input type="text" name="cmnd" class="opacity-50 cursor-not-allowed pointer-events-none block w-full mt-2 form-input text-sm whitespace-nowrap" value="123443214">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold text-sm whitespace-nowrap">Số điện thoại <span class="text-red-500">*</span></label>
+                <input type="text" name="so_dien_thoai" class="opacity-50 cursor-not-allowed pointer-events-none block w-full mt-2 form-input text-sm whitespace-nowrap" value="01625251508">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold text-sm whitespace-nowrap">Địa chỉ <span class="text-red-500">*</span></label>
+                <input type="text" name="dia_chi" class="opacity-50 cursor-not-allowed pointer-events-none block w-full mt-2 form-input text-sm whitespace-nowrap" value="Hue">
+            </div>
+            <div class="flex justify-between">
+                <button type="submit" class="bg-gradient text-white py-2 px-4 rounded whitespace-nowrap">Xoá</button>
+                <button type="button" onclick="history.back()" class="bg-gray-500 text-white py-2 px-4 rounded whitespace-nowrap">Quay lại</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    const prepopulateDate = (day, month, year) => {
+        const days = document.getElementById('ngay');
+        for (let i = 1; i <= 31; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            if (i == day) option.selected = true;
+            days.appendChild(option);
+        }
+
+        const months = document.getElementById('thang');
+        for (let i = 1; i <= 12; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            if (i == month) option.selected = true;
+            months.appendChild(option);
+        }
+
+        const years = document.getElementById('nam');
+        const currentYear = new Date().getFullYear();
+        for (let i = currentYear; i >= 1900; i--) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            if (i == year) option.selected = true;
+            years.appendChild(option);
+        }
+    };
+
+    prepopulateDate(5, 6, 1975);
+
+    document.getElementById('imagePreview').src = 'https://i.pinimg.com/564x/59/30/e7/5930e7a0a193cc6ec933303b93455445.jpg';
+
+</script>
+</body>
+</html>
+
